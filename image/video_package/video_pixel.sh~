@@ -1,0 +1,16 @@
+#!/bin/bash
+mkdir frames
+python vid_to_img.py video.mp4
+mkdir pixelated
+cp pixelizer.py frames/pixelizer.py
+for filename in frames/*.png; do
+    #echo "${filename##*/}"
+    #pass in number of pixels across and 's' for save
+    python pixelizer.py "${filename##*/}" 30 s
+    rm filename
+done
+                      #directory and framerate
+python pics_to_vid.py pixelated 15
+
+rm -r pixelated
+rm -r frames
