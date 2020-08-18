@@ -25,14 +25,13 @@ def iterator(a, x):
     outputs.extend(list(output_set))
     a_values.extend([a]*len(output_set))
 
-
-# generate points for range of a values
-STEP = 0.001
-INITIAL_SEED = 0.5  # arbitrary starting pt 0<x<1
-for a in np.arange(0, 4, STEP):
-    iterator(a, INITIAL_SEED)
-
-title = 'test'
-plt.scatter(a_values, outputs, color = 'white', s = 0.2)
-plt.savefig(title + '.png', format='png', dpi = 300, bbox_inches = 'tight')
-plt.show()
+if __name__ == '__main__':
+    # generate points for range of a values
+    STEP = 0.001
+    INITIAL_SEED = 0.5  # arbitrary starting pt 0<x<1
+    for a in np.arange(0, 4, STEP):
+        iterator(a, INITIAL_SEED)
+    title = 'test' # choose name here to save the file
+    plt.scatter(a_values, outputs, color = 'white', s = 0.2)
+    plt.savefig(title + '.png', format='png', dpi = 300, bbox_inches = 'tight')
+    plt.show()
