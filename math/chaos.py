@@ -17,8 +17,7 @@ def iterator(a, x):
         new = a*old - a*old**2
         old = new
     # either cycle is found or goes into chaos
-    while new not in output_set\
-            and len(output_set) < 100:
+    while new not in output_set and len(output_set) < 100:
         output_set.add(new)
         new = a*old - a*old**2
         old = new
